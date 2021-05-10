@@ -1,0 +1,20 @@
+<!--pages/reserve/reserve.wxml-->
+<view class="headline">我的收藏</view>
+<view class="list">
+<block wx:for='{{list}}' wx:key='list' wx:for-item="item">
+  <view class="list_item">
+      <view class="navigator">
+      <view class='img'>
+        <image bindtap='todetails' data-id="{{item.id}}" src="{{item.detailpicturepath}}"  mode="scaleToFill"/>
+      </view>
+      <view class='info'>
+        <view class='title'>{{item.name}}</view>
+        <view class='price'>商品价格￥{{item.price}}</view>
+        <view class='num'>销量{{item.saleNum}}</view>
+        <view class='stock'>库存{{item.stock}}</view>
+      </view>
+       </view>
+      <view class='clear'></view>
+  </view>
+  </block>
+  </view>

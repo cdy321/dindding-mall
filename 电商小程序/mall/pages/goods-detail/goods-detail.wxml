@@ -1,0 +1,61 @@
+<!--pages/goods-detail/goods-detail.wxml-->
+<view class="headline">商品详情</view>
+<scroll-view scroll-y="true">
+  <view class="detail">
+    <text class="title">{{detail.name}}</text>
+    <text class="price">￥{{detail.price}}</text>
+    <text>库存{{detail.stock}}</text>
+    <text>已售{{detail.saleNum}}件</text>
+  </view>
+  <view class="separate"></view>
+  <!-- sku选择 -->
+  <text class='select-num' bindtap="showCart">请选择购买数量</text>
+  <view class="separate"></view>
+  <view class="separate"></view>
+  <text>商品详情</text>
+ <image bindtap="previewImage" data-path="{{detail.detailpicturepath}}" class="image_detail" src="{{detail.detailpicturepath}}" />
+<view class="temp"></view>
+</scroll-view>
+
+<!-- 底部悬浮栏 -->
+<view class="detail-nav">
+  <image bindtap="addCart" src="../index/img/shopping-cart.jpg" />
+  <view class="line_nav"></view>
+	<image bindtap="addLike" src="{{isLike?'../index/img/heart_light.jpg':'../index/img/heart.jpg'}}" /> 
+  <button class="button-green" bindtap="addCart" >加入购物车</button>
+</view>
+ 
+<!--遮罩-->
+<view class='mask' hidden='{{mask}}' catchtap='hideAllBox'></view>
+<!--购物车弹窗-->
+<view class='lay-box detail-cart {{!cartBox ? "on" : ""}}'>
+	<view class='box-cart-title'>
+		<view class='price-box'>
+			<!--价格库存-->
+			<view class='price'>￥{{detail.price}}</view>
+			<view class="sales">库存({{detail.stock}})</view>
+			<!--右上角关闭按钮-->
+			<text class='lay-close' bindtap='showCart'>×</text>
+		</view>
+	</view>
+	<scroll-view scroll-y class='box-content'>
+		<!--选择数量-->
+		<view class='updown-box jus-b ali-c'>
+			<view class='cor-grey'>数量</view>
+			<!--商品数量加减按钮-->
+			<view class='updown flexc'>
+				<!--减-->
+				<view class='down' hover-class='button-hover' bindtap='reduceNumber'>
+					<text>-</text>
+				</view>
+				<!--输入框-->
+				<input type='number' class='nums' value='{{goodsNumber}}' bindinput="inputValueChange"></input>
+				<!--加-->
+				<view class='up' hover-class='button-hover' bindtap='addNumber'>
+					<text>+</text>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+	<view class='box-btn' bindtap='cartBoxClick'>确定</view>
+</view>

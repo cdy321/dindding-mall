@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cdy.mall.dao.GoodsDao">
+    <select id="queryById" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods
+        where id=#{id}
+    </select>
+
+    <select id="queryAll" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods
+    </select>
+
+    <select id="selectDetail" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods
+        where name like concat("%",#{content},"%")
+        or type like concat("%",#{content},"%") or
+        price like concat("%",#{content},"%") or
+        stock like concat("%",#{content},"%") or
+        saleNum like concat("%",#{content},"%")
+    </select>
+
+    <select id="selectShoesList" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods where type = '潮流服饰'
+    </select>
+
+    <select id="selectAnimalsList" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods where type = '可爱萌宠'
+    </select>
+
+    <select id="selectMedicineList" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods where type = '看病购药'
+    </select>
+
+    <select id="selectFamilyList" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods where type = '母婴家居'
+    </select>
+
+    <select id="selectElectricList" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods where type = '电子电器'
+    </select>
+
+    <select id="selectFruitList" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods where type = '新鲜水果'
+    </select>
+
+    <select id="selectHometoolList" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods where type = '经典家具'
+    </select>
+
+    <select id="selectVegitableList" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods where type = '生鲜蔬菜'
+    </select>
+
+    <select id="selectMaxGoods" resultType="cn.cdy.mall.entity.vo.GoodsVO">
+        select * from goods ORDER BY saleNum desc limit 0,10
+    </select>
+</mapper>

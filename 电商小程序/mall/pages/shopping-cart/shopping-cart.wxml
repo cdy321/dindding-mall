@@ -1,0 +1,39 @@
+<!--pages/shopping-cart/shopping-cart.wxml-->
+<view class="headline">购物车</view>
+<!-- 商品 -->
+
+  <!-- wx:for 渲染购物车列表 -->
+  <view wx:for="{{list}}" wx:key="{{list}}" class='cart-goods'>
+    <!-- wx:if 是否选择显示不同图标 -->
+ <view class='icon-wrapper' data-sumprice="{{item.sumprice}}" bindtap="selectList" data-index="{{index}}">
+  <checkbox class="checkbox" checked="{{item.checked}}"/>
+    </view>
+    <view  class='cart-img'>
+      <image class="cart-thumb" src="{{item.goodsVO.picturepath}}"></image>
+      <view class='cart-message'>
+        <text class='name'>商品名：{{item.goodsVO.name}}</text>
+        <text class='author'>库存：{{item.goodsVO.stock}}</text>
+        <text class='num'>购买数量：{{item.goodsnumber}}</text>
+        <text class='press'>销量：{{item.goodsVO.saleNum}}</text>
+        <text class='price'>价格：￥{{item.goodsVO.price}}</text>
+        <text class='price'>总价格：￥{{item.sumprice}}</text>
+      </view>
+    </view>
+    <!-- 点击商品图片可跳转到商品详情 -->
+    
+    <!-- 删除按钮 -->
+    <text data-id="{{item.id}}" bindtap="deleteList" data-index="{{index}}" class='delete'> × </text>
+  </view>
+
+
+<!-- 底部操作栏 -->
+<view class='cart-bottom'>
+  
+  <checkbox bindtap="selectAll" class="checkbox" checked="{{selectilall}}"/>
+  <text class="allSelect">全选</text>
+ 
+  <!-- 总价 -->
+  <text class='cart-allPrice'>合计:</text>
+  <text class='allPrice'>￥{{totalPrice}}</text>
+  <button style="width:300rpx" class='btn-red' bindtap='toBuy' form-type='submit'>去结算</button>
+</view>

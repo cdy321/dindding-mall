@@ -1,0 +1,17 @@
+<!--pages/search/search.wxml-->
+<form bindsubmit="search">
+<view>
+     <view>
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 搜索框 -->
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input name="content" type="text" class="weui-search-bar__input" placeholder="请输入商品名称"/>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<button type="primary" form-type="submit" class="btn">搜索商品</button>
+</form>

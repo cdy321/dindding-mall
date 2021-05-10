@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cdy.mall.dao.UserDao">
+    <insert id="insertUserInfo" keyProperty="id" useGeneratedKeys="true">
+        insert into user(nickName,
+        city,
+        country,
+        gender,
+        avatarUrl,
+        province,
+        language)
+        VALUES(#{nickName},#{city},#{country},#{gender},#{avatarUrl},#{province},#{language})
+    </insert>
+
+    <select id="selectUserInfoId" resultType="Integer">
+        select id from user where nickName = #{nickName}
+    </select>
+
+    <select id="selectUserInfoById" resultType="cn.cdy.mall.entity.vo.UserVO">
+        select * from user where id = #{userid}
+    </select>
+</mapper>

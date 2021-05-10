@@ -1,0 +1,38 @@
+<!--pages/kinds/kinds.wxml-->
+<view>
+     <view>
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 搜索框 -->
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input bindtap="searchGoods" type="text" class="weui-search-bar__input" placeholder="请输入商品名称"/>
+                </view>
+            </view>
+            <!-- 搜索按钮,调用搜索查询方法 -->
+            <view class="weui-search-bar__cancel-btn" bindtap='searchGoods'>搜索</view>
+        </view>
+    </view>
+</view>
+<view class="container">
+  <!-- 左侧导航 -->
+  <view class='tui-fixed-left'>
+    <scroll-view class='tui-city-scroll' scroll-x="true" scroll-y="true" style='height:92%;' scroll-with-animation="true" scroll-top="{{leftMenuTop}}">
+    <text class="menu-item {{index === currentActiveIndex ? 'menu-active' : ''}}" wx:for="{{list}}" wx:key="list" data-index="{{index}}" id='{{index}}' catchtap='changeMenu'>{{item.type}}</text>
+    </scroll-view>
+  </view>
+  <!-- 右侧滚动商品 -->
+  <view class='content'>
+    <scroll-view class='tui-city-scroll-y' scroll-y="true" style='height:92%;' scroll-with-animation="true" scroll-top="{{rightProTop}}" bindscroll="scroll">
+      <view class='pro-item' wx:for="{{list}}" wx:key="unique">
+        <view class='tui-list-head' id='NAV{{index}}'>{{item.type}}</view>
+        <view class='tui-list-li'>
+          <view class='goods-box' wx:for-item='items' wx:for="{{item.goodsVOList}}" wx:key="unique" >
+            <image data-id="{{items.id}}" bindtap="Todetails" class='goodsImg' src='{{items.picturepath}}'></image>
+            <view class='goodsName'>{{items.name}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

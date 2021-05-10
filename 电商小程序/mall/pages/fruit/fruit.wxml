@@ -1,0 +1,16 @@
+<!--pages/fruit/fruit.wxml-->
+<view class="headline">新鲜水果</view>
+<view class='shop_Box'>
+  <view class='shopBox' wx:for='{{list}}' wx:key='list'  wx:for-item="item">
+    <view class='shopImg'>
+      <image bindtap="Todetail" data-id="{{item.id}}" src='{{item.picturepath}}' />
+    </view>
+    <view class='shopName'>{{item.name}}</view>
+    <view class='shopMessage'>
+      <view class='shops'>
+        <text class='shopPrice'>￥{{item.price}}</text>
+        <text class='markPrice'>￥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+  </view>

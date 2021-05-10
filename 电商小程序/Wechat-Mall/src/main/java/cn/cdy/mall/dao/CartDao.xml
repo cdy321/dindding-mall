@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cdy.mall.dao.CartDao">
+    <insert id="insertCartInfo" keyProperty="id" useGeneratedKeys="true">
+        insert into cart(goodsid,userid,sumprice,goodsnumber)
+        values(#{goodsid},#{userid},#{sumprice},#{goodsnumber})
+    </insert>
+
+    <select id="selectAllCart" resultType="cn.cdy.mall.entity.po.CartPO">
+        select * from cart where userid = #{userid}
+    </select>
+
+    <delete id="deleteCartById" parameterType="Integer">
+        delete from cart where id = #{id}
+    </delete>
+</mapper>

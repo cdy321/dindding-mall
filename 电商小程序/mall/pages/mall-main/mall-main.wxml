@@ -1,0 +1,113 @@
+<!--pages/mall-main/mall-main.wxml-->
+<view>
+     <view>
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 搜索框 -->
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input bindtap="searchGoods" type="text" class="weui-search-bar__input" placeholder="请输入商品名称"/>
+                </view>
+            </view>
+            <!-- 搜索按钮,调用搜索查询方法 -->
+            <view class="weui-search-bar__cancel-btn" bindtap='searchGoods'>搜索</view>
+        </view>
+    </view>
+</view>
+<view class="swiper-container">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+    <block wx:for="{{imgUrls}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item}}" class="img" bindtap="swipclick" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+ <!--首页图标布局-->
+ <view class="card">
+    <view style="margin-top:20px;">
+     <view class="item" bindtap="shoesBtn">
+      <view>
+       <image src="../index/img/shoes.jpg" style="width:60rpx;height:60rpx;"></image>
+      </view>
+       <view class="fontType">
+        潮流服饰       
+       </view>
+    </view>
+    <view class="item" bindtap="electricBtn">
+     <view>
+      <image src="../index/img/electric.jpg" style="width:60rpx;height:60rpx;"></image>
+     </view>
+      <view class="fontType">
+      电子电器
+      </view>
+    </view>
+ <view class="item" bindtap="fruitBtn">
+  <view> 
+   <image src="../index/img/fruit.jpg" style="width:60rpx;height:60rpx;"></image>
+  </view>
+   <view class="fontType">
+  新鲜水果
+   </view>
+ </view>
+ <view class="item" bindtap="medicineBtn">
+ <view>
+  <image src="../index/img/medicine.jpg" style="width:60rpx;height:60rpx;"></image>
+ </view>
+ <view class="fontType">
+ 看病购药
+ </view>
+ </view>
+ <view class="item" bindtap="hometoolBtn">
+      <view>
+       <image src="../index/img/hometool.jpg" style="width:60rpx;height:60rpx;"></image>
+      </view>
+       <view class="fontType">
+        经典家具       
+       </view>
+    </view>
+<view class="item" bindtap="vegitableBtn">
+      <view>
+       <image src="../index/img/vegitable.jpg" style="width:60rpx;height:60rpx;"></image>
+      </view>
+       <view class="fontType">
+        生鲜蔬菜       
+       </view>
+    </view>
+<view class="item" bindtap="animalBtn">
+      <view>
+       <image src="../index/img/animal.jpg" style="width:60rpx;height:60rpx;"></image>
+      </view>
+       <view class="fontType">
+        可爱萌宠       
+       </view>
+    </view>
+<view class="item" bindtap="familyBtn">
+      <view>
+       <image src="../index/img/family.jpg" style="width:80rpx;height:60rpx;"></image>
+      </view>
+       <view class="fontType">
+        母婴家居       
+       </view>
+    </view>
+    </view>
+ </view>
+ <view class="hotSale">热销榜</view>
+ <view class='list'>
+  <block wx:for='{{list}}' wx:key='list'  wx:for-item="item">
+  <view class="list_item"> 
+      <view class="navigator" bindtap="redirectGoodsdetail" data-id="{{item.id}}">
+      <view class='img'>
+        <image src="{{item.picturepath}}"  mode="scaleToFill"/>
+      </view>
+      <view class='info'>
+        <view class='title'>{{item.name}}</view>
+        <view class='price'>￥{{item.price}}</view>
+        <view class='num'>销量{{item.saleNum}}</view>
+        <view class='stock'>库存{{item.stock}}</view>
+      </view>
+       </view>
+      <view class='clear'></view>
+  </view>
+  </block>
+</view>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cdy.mall.dao.ReserveDao">
+    <insert id="insertReserve" keyProperty="id" useGeneratedKeys="true">
+        insert into reserve(goodsid,userid) values(#{goodsid},#{userid})
+    </insert>
+
+    <delete id="deleteReserve" parameterType="cn.cdy.mall.entity.po.ReservePO">
+        delete  from reserve where goodsid = #{goodsid} and userid = #{userid}
+    </delete>
+
+    <select id="selectAllReserve" resultType="cn.cdy.mall.entity.po.ReservePO">
+        select * from reserve where userid = #{userid}
+    </select>
+</mapper>

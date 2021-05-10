@@ -1,0 +1,53 @@
+<!--pages/address/address.wxml-->
+<form bindsubmit="submitAddress">
+<view class="container2">
+  <view class="bg-fff p-lr30 border-t">
+    <view class="ipt-wrap border-b flex ai-center">
+      <label for="" class="font14">姓名</label>
+      <input name="name" type="text" class="ml40 flex1" placeholder="请输入姓名" bindinput="getNameValue"></input>
+    </view>
+ 
+    <view class="ipt-wrap border-b flex ai-center">
+      <label for="" class="font14">手机号码</label>
+      <input name="phonenum" type="text" class="ml40 flex1" maxlength="11" placeholder="请输入手机号码" bindinput="getPhoneValue"></input>
+    </view>
+ 
+    <view class="ipt-wrap border-b flex ai-center jc-sb">
+      <view class="flex ai-center">
+        <label for="" class="font14">所在地区</label>
+        <picker mode="region" class="ml40 flex1 region" placeholder="省、市、区" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name = "district">
+          <view class="picker flex1 texthide">
+            {{region[0]}} {{region[1]}} {{region[2]}}
+          </view>
+        </picker>
+      </view>
+      <view class="flex">
+        <text wx:if="{{regionFlag}}">请选择</text>
+        <text class="iconfont icon-youjiantou color-a5a5a5 ml20"></text>
+      </view>
+    </view>
+ 
+    <view class="ipt-wrap border-b">
+      <textarea name="detailAddress" id="" class="textarea _w100 p-tb30 lh10" maxlength="50" placeholder="请输入详细地址，精确到门牌号"      bindinput="getTextareaValue"></textarea>
+    </view>
+ 
+    <view class="ipt-wrap border-b flex ai-center jc-sb ">
+      <view class="flex ai-center">
+        <label for="" class="font14">所在楼层</label>
+        <input name = "floor" type="text" class="ml40 flex1" placeholder="请输入楼层号" bindinput="getFloorValue"></input>
+      </view>
+      <view class="flex">
+        <view class="default-wrap">
+          <text class="{{elevatorFlag == 0 ? 'icon-xuanzekuang iconfont color-767676 default-icon' : 'icon-selected1 iconfont color-279efd default-icon'}}" bindtap="changeIconStatu"></text>
+        </view>
+      </view>
+    </view>
+ 
+    <view class="ipt-wrap border-b">
+      <textarea name="beizhu" id="" class="textarea _w100 p-tb30 lh10" maxlength="50" placeholder="可在此处填写备注说明" bindinput="getRemarksValue" ></textarea>
+    </view>
+  </view>
+ 
+  <button type="primary" style="margin-top:20rpx" form-type="submit">保存</button>
+</view>
+</form>

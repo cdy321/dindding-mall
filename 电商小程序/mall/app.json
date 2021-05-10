@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/mall-main/mall-main",
+    "pages/findings/findings",
+    "pages/kinds/kinds",
+    "pages/shopping-cart/shopping-cart",
+    "pages/user-center/user-center",
+    "pages/search/search",
+    "pages/goods-info/goods-info",
+    "pages/shoes/shoes",
+    "pages/electric/electric",
+    "pages/fruit/fruit",
+    "pages/medicine/medicine",
+    "pages/hometool/hometool",
+    "pages/vegitable/vegitable",
+    "pages/animal/animal",
+    "pages/family/family",
+    "pages/goods-detail/goods-detail",
+    "pages/order/order",
+    "pages/address/address",
+    "pages/comments/comments",
+    "pages/reserve/reserve",
+    "pages/propaganda/propaganda"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "叮叮商城",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/mall-main/mall-main",
+        "text": "首页",
+        "iconPath": "pages/index/img/home.jpg",
+        "selectedIconPath": "pages/index/img/home.jpg"
+      },
+      {
+        "pagePath": "pages/kinds/kinds",
+        "text": "分类",
+        "iconPath": "pages/index/img/kinds.jpg",
+        "selectedIconPath": "pages/index/img/kinds.jpg"
+      },
+      {
+        "pagePath": "pages/findings/findings",
+        "text": "发现",
+        "iconPath": "pages/index/img/finds.jpg",
+        "selectedIconPath": "pages/index/img/finds.jpg"
+      },
+      {
+        "pagePath": "pages/shopping-cart/shopping-cart",
+        "text": "购物车",
+        "iconPath": "pages/index/img/shopping-cart.jpg",
+        "selectedIconPath": "pages/index/img/shopping-cart.jpg"
+      },
+      {
+        "pagePath": "pages/user-center/user-center",
+        "text": "我的",
+        "iconPath": "pages/index/img/mine.jpg",
+        "selectedIconPath": "pages/index/img/mine.jpg"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

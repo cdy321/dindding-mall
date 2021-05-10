@@ -1,0 +1,63 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" style="position: relative; left: 3rpx; top: -181rpx"> 请先登录 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    </block>
+    <block wx:else>
+    <image style="position: relative; left: 3rpx; top: -181rpx" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text style="position: relative; left: 3rpx; top: -181rpx" class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view>
+<view class="separate" ></view>
+  <view class="order" catchtap="toOrder">
+    <text class="myorder-text">我的订单</text>
+    <text bindtap="toOrder"  class="myorderlook-text">查看全部订单</text>
+  </view>
+  <view class="line"></view>
+  <view class="navs">
+    <block wx:for-items="{{orderItems}}" wx:key="name">
+      <view class="nav-item" catchtap="toOrder" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
+        <image src="{{item.imageurl}}" class="nav-image" />
+        <text>{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="person-list">
+    <view class="list-item">
+      <image class="item-image" src="../index/img/shopping-cart.jpg"></image>
+      <text bindtap="toCart" class="item-text">我的购物车</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../index/img/address.jpg"></image>
+      <text bindtap="toAddress" class="item-text">收货地址</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../index/img/reserve.jpg"></image>
+      <text bindtap="toReserve" class="item-text">我的收藏</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../index/img/comments.jpg"></image>
+      <text bindtap="toComments" class="item-text">我的评价</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../index/img/propaganda.jpg"></image>
+      <text bindtap="toPropaganda" class="item-text">推广邀请</text>
+    </view>
+  </view>
+  
+
+
+

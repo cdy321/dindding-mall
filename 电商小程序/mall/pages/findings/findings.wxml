@@ -1,0 +1,30 @@
+<!--pages/findings/findings.wxml-->
+<view>
+     <view>
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 搜索框 -->
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input bindtap="searchGoods" type="text" class="weui-search-bar__input" placeholder="请输入商品名称"/>
+                </view>
+            </view>
+            <!-- 搜索按钮,调用搜索查询方法 -->
+            <view class="weui-search-bar__cancel-btn" bindtap='searchGoods'>搜索</view>
+        </view>
+    </view>
+</view>
+<view class='shop_Box'>
+  <view class='shopBox' wx:for='{{list}}' wx:key='list'  wx:for-item="item">
+    <view class='shopImg'>
+      <image data-id="{{item.id}}" bindtap='redirectGoodsdetail' src='{{item.picturepath}}' />
+    </view>
+    <view class='shopName'>{{item.name}}</view>
+    <view class='shopMessage'>
+      <view class='shops'>
+        <text class='shopPrice'>￥{{item.price}}</text>
+        <text class='markPrice'>￥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+  </view>
